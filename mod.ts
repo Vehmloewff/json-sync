@@ -3,6 +3,8 @@
 import { Data, Flattened, Change } from './types.ts'
 import { flatten, diff, applyChanges as bareApplyChanges, rebuild } from './utils.ts'
 
+export type { Change, Flattened }
+
 //
 // Provider
 //
@@ -17,8 +19,9 @@ export interface MakeJsonSyncProviderResult {
 	getState(): Flattened
 }
 
-export function makeJsonSyncProvider(data: Data, params: MakeJsonSyncProviderParams): MakeJsonSyncProviderResult {
+export function makeJsonSyncProvider(state: unknown, params: MakeJsonSyncProviderParams): MakeJsonSyncProviderResult {
 	const sendChanges = params.sendChanges
+	const data = state as Data
 
 	let currentState = flatten(data)
 
