@@ -1,5 +1,7 @@
 # Json Sync
 
+> It's a cool tool, but I no longer have the time to maintain it.
+
 A Deno tool to sync JSON data from a provider to a receiver.
 
 NOTE: Syncing is one way, meaning that the receiver cannot sync to the provider.
